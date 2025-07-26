@@ -51,10 +51,10 @@ for week in data:
             local_end = local_start + timedelta(hours=3)
 
             # Game title
-            if week.get("type") == "REG":
+            if week.get("type") == "REG" or week.get("type") == "PRE":
                 subject = f"{game['awaySquad']['name']} @ {game['homeSquad']['name']}"
             else:
-                subject = "TBD @ TBD"
+                subject = week.get("name", "TBD @ TBD")
 
             csv_rows.append([
                 subject,
